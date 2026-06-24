@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/var/www/html:cached
+    depends_on:
+      - db
+    networks:
+      - app
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ..:/var/www/html:cached
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - app
+
+  db:
+    image: mariadb:10
+    environment:
+      MARIADB_ROOT_PASSWORD: mariadb
+      MARIADB_DATABASE: todo_app
+      MARIADB_USER: mariadb
+      MARIADB_PASSWORD: mariadb
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./mariadb/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  mariadb_data:
