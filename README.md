@@ -17,7 +17,7 @@ VS Code の Dev Containers 拡張機能で開くと、PHP / Web サーバー / D
 | --- | --- | --- | --- |
 | `app` | `php:8.5-fpm` | PHP実行環境（Composer, Node.js/npm同梱） | - |
 | `nginx` | `nginx:alpine` | Webサーバー（`app`へFastCGIでリバースプロキシ） | `8000:80` |
-| `db` | `mariadb:10` | データベース | - |
+| `db` | `mariadb:10` | データベース | `3306:3306` |
 
 `devcontainer.json` では `5173`（Vite想定）もポートフォワード対象に設定されています。
 
