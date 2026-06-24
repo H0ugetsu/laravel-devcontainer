@@ -4,7 +4,7 @@
   "service": "app",
   "workspaceFolder": "/var/www/html",
   "features": {},
-  "forwardPorts": [8000, 5173],
+  "forwardPorts": [8000, 5173, 3306],
   "customizations": {
     "vscode": {
       "extensions": [

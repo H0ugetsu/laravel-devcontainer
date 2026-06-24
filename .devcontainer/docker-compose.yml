@@ -23,7 +23,7 @@ services:
       - app
 
   db:
-    image: mariadb:10
+    image: mariadb:latest
     environment:
       MARIADB_ROOT_PASSWORD: mariadb
       MARIADB_DATABASE: mariadb
@@ -32,6 +32,8 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
       - ./mariadb/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    ports:
+      - "3306:3306"
     networks:
       - app
 
