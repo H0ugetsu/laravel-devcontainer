@@ -26,7 +26,7 @@ services:
     image: mariadb:10
     environment:
       MARIADB_ROOT_PASSWORD: mariadb
-      MARIADB_DATABASE: todo_app
+      MARIADB_DATABASE: mariadb
       MARIADB_USER: mariadb
       MARIADB_PASSWORD: mariadb
     volumes:
